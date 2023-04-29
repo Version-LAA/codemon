@@ -1,2 +1,108 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# First row (logo, name, search button, profile button) %>
+<%# Changes that need to be made * make codemon stick to the logo, space the profile part out to the right * %>
+<div class="container">
+  <div class="row">
+    <div class="col logo-container">
+      <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="col container">
+      <h3>Codemon</h3>
+    </div>
+
+    <div class="col container">
+      <div class="profile">
+        <a href="#">Profile</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# Second row (filtering options) %>
+<div class="container" style="border: 1px solid black; padding: 5px; margin: 10px;">
+  <div class="row">
+
+    <div class="col ability" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>ability</h6>
+    </div>
+
+    <div class="col price" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>price</h6>
+    </div>
+
+    <div class="col type" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>type</h6>
+    </div>
+
+    <div class="col availability" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>availability</h6>
+    </div>
+
+    <div class="col evolution" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>evolution</h6>
+    </div>
+
+    <div class="col catchability" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>catchability</h6>
+    </div>
+
+    <div class="col size" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>size</h6>
+    </div>
+
+    <div class="col rarity" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>rarity</h6>
+    </div>
+
+    <div class="col filter" style="border: 1px solid black; padding: 5px; margin: 10px;">
+      <img src="logo.png" alt="Logo">
+      <h6>filter</h6>
+    </div>
+  </div>
+</div>
+
+<%# Third row (our first three pokemon) %>
+<div class="row first-row">
+  <div class="col container" style="border: 1px solid black; padding: 10px; margin: 20px; text-align: center;">
+    <img src="picture1.jpg" alt="Picture 1">
+    <h6>text 1</h6>
+    <button>Button</button>
+  </div>
+  <div class="col container" style="border: 1px solid black; padding: 10px; margin: 20px; text-align: center;">
+    <img src="picture2.jpg" alt="Picture 2">
+    <h6>text 2</h6>
+    <button>Button</button>
+  </div>
+  <div class="col container" style="border: 1px solid black; padding: 10px; margin: 20px; text-align: center;">
+    <img src="picture3.jpg" alt="Picture 3">
+    <h6>text 3</h6>
+    <button>Button</button>
+  </div>
+</div>
+
+<%# Fourth row (another three pokemon) %>
+<div class="row second-row">
+  <div class="col container" style="border: 1px solid black; padding: 10px; margin: 20px; text-align: center;">
+    <img src="picture4.jpg" alt="Picture 4">
+    <h6>text 4</h6>
+    <button>Button</button>
+  </div>
+  <div class="col container" style="border: 1px solid black; padding: 10px; margin: 20px; text-align: center;">
+    <img src="picture5.jpg" alt="Picture 5">
+    <h6>text 5</h6>
+    <button>Button</button>
+  </div>
+  <div class="col container" style="border: 1px solid black; padding: 10px; margin: 20px; text-align: center;">
+    <img src="picture6.jpg" alt="Picture 6">
+    <h6>text 6</h6>
+    <button>Button</button>
+  </div>
+</div>
