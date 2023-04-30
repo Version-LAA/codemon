@@ -46,6 +46,7 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 gem "devise"
+gem "pundit"
 gem "json"
 gem "open-uri"
 
