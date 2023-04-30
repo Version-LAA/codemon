@@ -5,4 +5,8 @@ class PokemonPolicy < ApplicationPolicy
     #   scope.all
     # end
   end
+
+  def show?
+    return true
+  end
 end

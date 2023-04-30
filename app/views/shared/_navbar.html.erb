@@ -12,7 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <%if !current_page?(controller:"pages",action:"home")%>
+              <%=link_to "Home",root_path,class:"home-link"%>
+            <%end%>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Messages</a>
