@@ -43,8 +43,10 @@ puts "starting seed of pokemon"
       description: "A #{pokemon_list['height']} decimetres pokemon," \
                    "who is of the following type(s): #{types.join(',')} " \
                    "and #{pokemon_list['abilities'][0]['ability']['name']} ability ",
-      user_id: User.all.sample.id
+      user_id: User.all.sample.id,
     )
+    photo_file = URI.open(pokemon_list['sprites']['front_default'])
+    poke.photo.attach(io: photo_file, filename: "#{poke.name}.png", content_type: "image/png")
     puts "#{poke.id} created successfully"
   end
 end

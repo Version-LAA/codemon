@@ -1,8 +1,16 @@
 <div class="card home-card m-4" style="width: 15rem;">
-  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="card-img-top border-bottom" alt="...">
+  <h5 class="card-title mt-5 mx-3"><%=name%></h5>
+  <div class="border">
+    <%= cl_image_tag(photo,
+      height: 150,
+      width: 200,
+      crop: :scale,
+      aspect_ratio: "4:3")%>
+  </div>
+  <%# <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="card-img-top border-bottom" alt="..."> %>
   <div class="card-body">
-    <h5 class="card-title"><%=name%></h5>
+
     <p class="card-text">$<%=price%>/day</p>
-    <%=link_to "view",pokemon_path(id),class:"btn btn-danger"%>
+    <%=link_to "view",pokemon_path(id),class:"btn btn-danger btn-lg"%>
   </div>
 </div>
