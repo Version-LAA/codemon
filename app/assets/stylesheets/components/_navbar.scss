@@ -14,3 +14,16 @@
 .avatar {
   font-size: 25px;
 }
+
+.home-link {
+  text-decoration: none;
+  color: #A2A1A3;
+  position: relative;
+  right: 20px;
+  top: 7px;
+  font-size: 18px;
+  margin-left: 20px;
+  &:hover{
+    color:black;
+  }
+}
