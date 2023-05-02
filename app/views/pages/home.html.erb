@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# First row (logo, name, search button, profile button) %>
+<%# Changes that need to be made *** make codemon stick to the logo, space the profile part out to the right *** %>
+<%=render "shared/navbar"%>
+<div class="container mt-4">
+  <div class="row border filter mb-4">
+    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("rarity.png"),root_path)%></div>
+    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("toptype.png"),root_path)%></div>
+    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("largest.png"),root_path)%></div>
+    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("budget.png"),root_path)%></div>
+    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("filter.png"),root_path)%></div>
+  </div>
+
+
+  <div class="row">
+    <%@pokemons.each do |pokemon|%>
+      <div class="col-lg-3">
+        <%=render "/shared/card" ,name:pokemon.name.titleize,rare:pokemon.rarity,price:pokemon.price,id:pokemon.id,photo:pokemon.photo.key%>
+      </div>
+    <%end%>
+  </div>
+
+</div>
