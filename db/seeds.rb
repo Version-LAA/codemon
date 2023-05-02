@@ -40,9 +40,10 @@ puts "starting seed of pokemon"
       rarity: poke_rarity.sample,
       size: pokemon_list['height'],
       price: rand(20..1000.00).round(2),
-      description: "A #{pokemon_list['height']} decimetres pokemon," \
-                   "who is of the following type(s): #{types.join(',')} " \
-                   "and #{pokemon_list['abilities'][0]['ability']['name']} ability ",
+      description: "A #{pokemon_list['height']} decimetres pokemon, " \
+                   "who is of the following type(s):#{types.join(',')} " \
+                   "and has #{pokemon_list['abilities'][0]['ability']['name']} "\
+                   "ability. This pokemon has a weight of #{pokemon_list['weight']} hecktograms!",
       user_id: User.all.sample.id,
     )
     photo_file = URI.open(pokemon_list['sprites']['front_default'])
