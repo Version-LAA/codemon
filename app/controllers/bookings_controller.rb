@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :set_pokemon, only: %i[new create]
 
   def new
     #delete line 4 when I'm done
@@ -7,22 +8,30 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  # def create
-  #   @pokemon = Pokemon.find(params[:pokemon_id])
-  #   @booking = Booking.new(booking_params)
-  #   @booking.pokemon = @pokemon
-  #   @booking.user = current_user
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.pokemon = @pokemon
+    @booking.user = current_user
+    @booking.status = true
+    if @booking.end_date && @booking.start_date
+      @booking_prize = (@booking.end_date - @booking.start_date).to_f * @booking.pokemon.price.to_f
+    else
+      @booking_prize = 0
+    end
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      redirect_to bed_path(@pokemon)
+    end
+  end
 
-  # end
+  private
 
-  # private
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :booking_status)
+  end
 
-  # def booking_params
-  #   params.require
-
-  # def set_booking
-  #   @booking = Booking.find(params[:id])
-  # end
-
-  # end
+  def set_pokemon
+    @pokemon = Pokemon.find(params[:pokemon_id])
+  end
 end
