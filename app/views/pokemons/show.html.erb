@@ -1,2 +1,76 @@
+<%# Navbar and pokemon name %>
 <%=render "shared/navbar"%>
-<h1>Test show page - <%=@pokemon.name%></h1>
+<h1><%=@pokemon.name.capitalize%></h1>
+
+<%# Pokemon Picture %>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height:300px;">
+      <%= cl_image_tag(@pokemon.photo.key, width: 400, height: 300, crop: :fill) %>
+    </div>
+
+     <%# reservation card (prices, dates, reviews, reserve button) %>
+    <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height:500px;">
+      <div class="row">
+
+        <%# might need another col for the reviews %>
+        <div class="col" style="padding: 10px; margin: 10px;">
+          $$$ per battle and reviews
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          check in and checkout
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          1 battle
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          reserve button
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          You won't be charged yet
+        </div>
+      </div>
+
+    <%# might need another col for the $$$ %>
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          price x days in italic
+        </div>
+      </div>
+
+      <%# might need another col for the $$$ %>
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          Codemon service fee in italic
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          Total before taxes: {enter amount here}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Pokemon description %>
+  <div class="container">
+    <div class="row">
+      <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
+        Pokemon description
+      </div>
+    </div>
+  </div>
+</div>
