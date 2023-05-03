@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
 
   def new
+    #delete line 4 when I'm done
+    @pokemon = Pokemon.find(params[:pokemon_id])
     @booking = Booking.new
     authorize @booking
   end
