@@ -40,15 +40,14 @@
 
       <div class="row">
         <div class="col" style="padding: 5px; margin: 5px;">
-          <div style="border: 1px solid black; border-radius: 10px; padding: 10px; width: 50%; margin: 0 auto;">
-            <strong>1 battle</strong>
-          </div>
+            <strong><%=link_to "Battle Now", new_pokemon_booking_path(@pokemon),class:"btn btn-danger"%></strong>
+
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <%=link_to "Book Now", new_pokemon_booking_path(@pokemon)%>
+
         </div>
       </div>
 
@@ -61,20 +60,20 @@
     <%# might need another col for the $$$ %>
       <div class="row">
         <div class="col" style="padding: 1px; margin: 1px;">
-          <u>price x days</u> {total amount}
+          <u>price x days</u> $<%=@pokemon.price%>
         </div>
       </div>
 
       <%# might need another col for the $$$ %>
       <div class="row">
         <div class="col" style="padding: 1px; margin: 1px;">
-          <u>Codemon service fee</u> {total amount}
+          <u>Codemon service fee</u> $<%=service=rand(50..100)%>.00
         </div>
       </div>
 
       <div class="row">
         <div class="col" style="padding: 10px; margin: 10px;">
-          <b>Total before taxes: {enter amount here}</b>
+          <b>Total before taxes:$<%=@pokemon.price+service%></b>
         </div>
       </div>
     </div>
