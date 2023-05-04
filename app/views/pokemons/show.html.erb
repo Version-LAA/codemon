@@ -1,2 +1,91 @@
+<%# Navbar and pokemon name %>
 <%=render "shared/navbar"%>
-<h1>Test show page - <%=@pokemon.name%></h1>
+<h1><%=@pokemon.name.capitalize%></h1>
+
+<%# Pokemon Picture %>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-5" style="border: 1px solid black; padding: 0px; margin: 10px; height: 300px;">
+      <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <%= cl_image_tag(@pokemon.photo.key, width: 400, height: 300, crop: :fill) %>
+      </div>
+    </div>
+
+
+     <%# reservation card (prices, dates, reviews, reserve button) %>
+    <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height:500px; background-color: white;">
+      <div class="row">
+
+        <%# might need another col for the reviews %>
+        <div class="col" style="padding: 20px; margin: 20px; text-align: left;">
+          $$$ per battle
+        </div>
+
+        <div class="col" style="padding: 20px; margin: 20px; text-align: right;">
+          ⭐️⭐️⭐️⭐️⭐️ reviews
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 7px; margin: 7px;">
+          <div style="border: 1px solid black; border-radius: 10px; padding: 10px; width: 50%; margin: 0 auto;">
+            <div style="display: flex; justify-content: space-between;">
+              <div>Check in: <input type="date" style="width: 100px;"></div>
+              <div>Check out: <input type="date" style="width: 100px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col" style="padding: 5px; margin: 5px;">
+          <div style="border: 1px solid black; border-radius: 10px; padding: 10px; width: 50%; margin: 0 auto;">
+            <strong>1 battle</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <%=link_to "Book Now", new_pokemon_booking_path(@pokemon)%>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding-bottom: 20px; margin: 0 auto; color: black;">
+          You won't be charged yet
+        </div>
+      </div>
+
+    <%# might need another col for the $$$ %>
+      <div class="row">
+        <div class="col" style="padding: 1px; margin: 1px;">
+          <u>price x days</u> {total amount}
+        </div>
+      </div>
+
+      <%# might need another col for the $$$ %>
+      <div class="row">
+        <div class="col" style="padding: 1px; margin: 1px;">
+          <u>Codemon service fee</u> {total amount}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col" style="padding: 10px; margin: 10px;">
+          <b>Total before taxes: {enter amount here}</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Pokemon description %>
+  <div class="container">
+    <div class="row">
+      <div class="description col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
+        <%=@pokemon.description%>
+      </div>
+    </div>
+  </div>
+</div>
