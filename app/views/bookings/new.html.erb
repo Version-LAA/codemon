@@ -1,16 +1,14 @@
 <%=render "shared/navbar"%>
 
 <div class="container" >
-  <h1>Confirmation Reservation</h1>
-
-  <%= simple_form_for([@pokemon,@booking]) do |b|%>
-    <%# <%= b.input :name %>
-    <%# <%= b.input :email %>
-    <%= b.input :start_date %>
-    <%= b.input :end_date %>
-    <%# <%= b.input :price %>
-    <%= b.submit value="Reserve", class:"btn btn-primary" %>
-    <%= b.submit value="Cancel", class:"btn btn-primary"%>
-  <% end %>
-
+  <h1>Confirmation Reservation- <%= current_user.name%> </h1>
+  <div>
+    <%= simple_form_for([@pokemon,@booking]) do |b|%>
+      <%# <%= b.input :email %>
+      <%= b.input :start_date %>
+      <%= b.input :end_date %>
+      <%= b.submit value="Reserve", class:"btn btn-primary" %>
+      <%= link_to "Cancel",pokemon_path(@pokemon), class:"btn btn-primary"%>
+    <% end %>
+  </div>
 </div>
