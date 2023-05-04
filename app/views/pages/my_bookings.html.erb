@@ -1,0 +1,38 @@
+<%=render "shared/navbar"%>
+
+<h1 class="mb-4" style="text-align:center"><%=current_user.name%>'s Bookings</h1>
+<div class="container-sm mt-4 centered">
+  <div class="row">
+    <div class="col-2"><h4>Pokemon</h4></div>
+    <div class="col-3"> <h4>Reservation Dates</h4></div>
+    <div class="col-2"> <h4>Reservation Status</h4></div>
+    <div class="col-2"> <h4>Booking Total</h4></div>
+    <div class="col-3"> <h4>Reservation Created</h4></div>
+  </div>
+  <div>
+    <%@my_bookings.each do |booking|%>
+      <div class="row border my-booking">
+        <div class="col-2 border">
+          <%=cl_image_tag(booking.pokemon.photo.key,height:75,width:100)%>
+          <span> <strong><%=booking.pokemon.name%></strong></span>
+        </div>
+        <div class="col-3 border">
+          <%="#{booking.start_date} - #{booking.end_date} "%>
+        </div>
+          <div class="col-2 border">
+          <%if booking.booking_status%>
+            <%=booking.booking_status.titleize%>
+          <%else%>
+            <p>AWAITING COMFIRMATION</p>
+          <%end%>
+        </div>
+        <div class="col-2 border">
+          $<%=booking.total%>
+        </div>
+        <div class="col-3 border">
+          <%=booking.created_at%>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>

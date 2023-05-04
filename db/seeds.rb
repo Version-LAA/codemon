@@ -14,15 +14,18 @@ User.delete_all
 puts "pokemon cleaned"
 
 puts "creating users"
-User.create(email: "codemon@codemon.com", password: "password")
-User.create(email: "tech@techtrek.com", password: "password")
-User.create(email: "test@codemon.com", password: "password")
+User.create(email: "codemon@codemon.com", password: "password",name:"Latoya")
+User.create(email: "latoya@codemon.com", password: "password",name:"Latoya")
+User.create(email: "peter@codemon.com", password: "password",name:"Peter")
+User.create(email: "andrew@codemon.com", password: "password",name:"Andrew")
+User.create(email: "kameron@codemon.com", password: "password",name:"Latoya")
+User.create(email: "bertrand@codemon.com", password: "password",name:"Bertrand")
 puts "users created"
 
 poke_rarity = ['common', 'uncommon', 'rare']
 
 puts "starting seed of pokemon"
-51.times do |i|
+75.times do |i|
   types = []
   if i!= 0
     url = "https://pokeapi.co/api/v2/pokemon/#{i}/"
