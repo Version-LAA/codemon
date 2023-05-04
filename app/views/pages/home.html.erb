@@ -13,9 +13,11 @@
 
   <div class="row">
     <%@pokemons.each do |pokemon|%>
-      <div class="col-lg-3">
-        <%=render "/shared/card" ,name:pokemon.name.titleize,rare:pokemon.rarity,price:pokemon.price,id:pokemon.id,photo:pokemon.photo.key%>
-      </div>
+      <%if pokemon.status != "pending"%>
+        <div class="col-lg-3">
+          <%=render "/shared/card" ,name:pokemon.name.titleize,rare:pokemon.rarity,price:pokemon.price,id:pokemon.id,photo:pokemon.photo.key%>
+        </div>
+      <%end%>
     <%end%>
   </div>
 
