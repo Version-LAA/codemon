@@ -10,14 +10,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.pokemon = @pokemon
     @booking.user = current_user
-    @booking.status = true
+    # @booking.status = true
+    authorize @booking #we authorize the ability to create a pokemon booking
     if @booking.end_date && @booking.start_date
       @booking_prize = (@booking.end_date - @booking.start_date).to_f * @booking.pokemon.price.to_f
     else
       @booking_prize = 0
     end
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to root_path
     else
       redirect_to bed_path(@pokemon)
     end
