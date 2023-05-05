@@ -49,7 +49,7 @@ puts "starting seed of pokemon"
                    "ability. This pokemon has a weight of #{pokemon_list['weight']} hecktograms!",
       user_id: User.all.sample.id,
     )
-    photo_file = URI.open(pokemon_list['sprites']['front_default'])
+    photo_file = URI.open(pokemon_list['sprites']['other']['dream_world']['front_default'])
     poke.photo.attach(io: photo_file, filename: "#{poke.name}.png", content_type: "image/png")
     puts "#{poke.id} created successfully"
   end
