@@ -9,7 +9,7 @@ export default class extends Controller {
   }
 
   removefilter(){
-    // Will remove hidden class from div element - which will remove filter
+    // Will remove hidden class from div element - which will remove all filters
     const html = this.cardTarget.children
     const output = Object.entries(html)
     output.forEach(element => {
@@ -19,15 +19,16 @@ export default class extends Controller {
   }
 
   addFilter(type){
-    this.removefilter()
+    this.removefilter() //removes filters anytime this function is called.
     const html = this.cardTarget.children
     const output = Object.entries(html) // turns html object to array
     const regex = /\$(.+)\/day/ //regex to look for pricing in innerText
-    let count = 0;
+
 
     output.forEach(element => {
-      const string = element[1].innerText.split("\n")
+      const string = element[1].innerText.split("\n") // splits each string into an array
       if(type === "budget") {
+        // looks for pokemon under $300
         const value = string[8]
         const match = parseFloat(regex.exec(string)[1])
         if(match >= 300){
@@ -35,22 +36,23 @@ export default class extends Controller {
         }
       }
       if(type === "rare") {
+        // looks for pokemon with Rare type
         if(string[2]!== "rare") {
           element[1].classList.add("hide")
-          count++
         }
       }
 
       if(type === "type"){
+        // Looks for pokemon of the top types
         const topTypes = ['steel','fairy','dragon','water','electric','fighting','ground','dark','flying']
         const ptype = string[4].split(" ")[1].toLowerCase();
-        console.log(ptype);
         if(!topTypes.includes(ptype)){
           element[1].classList.add("hide")
         }
       }
 
       if(type==="large"){
+        // Looks for pokemon of the size >= 9
         const size = parseInt(string[6].split(" ")[1])
         console.log(size);
         if(!(size > 9)) {
@@ -60,10 +62,6 @@ export default class extends Controller {
       }
     });
   }
-
-
-
-
 
   rarity(){
     // Looks for a click on Rarity Pokemon filter
