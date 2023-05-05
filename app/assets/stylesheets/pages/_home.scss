@@ -25,4 +25,16 @@ body {
 
 .clicked {
   background-color: gold;
+  border-radius: 16px;
+}
+
+.hide {
+  display: none;
+
+}
+
+.clickable:hover {
+  cursor:pointer;
+  background-color: rgb(239, 223, 134);
+  border-radius: 16px;
 }
