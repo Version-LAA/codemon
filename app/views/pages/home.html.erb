@@ -1,22 +1,37 @@
 <%# First row (logo, name, search button, profile button) %>
 <%# Changes that need to be made *** make codemon stick to the logo, space the profile part out to the right *** %>
 <%=render "shared/navbar"%>
-<div class="container mt-4">
+<div class="container mt-4" data-controller="filter">
   <div class="row border filter mb-4">
-    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("rarity.png"),root_path)%></div>
-    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("toptype.png"),root_path)%></div>
-    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("largest.png"),root_path)%></div>
-    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("budget.png"),root_path)%></div>
-    <div class="col p-2 d-flex justify-content-center"><%=link_to(image_tag("filter.png"),root_path)%></div>
+    <div class="col p-2 d-flex justify-content-center"
+      data-action="click->filter#rarity"
+      data-filter-target="rarity">
+      <%=image_tag("rarity.png")%>
+    </div>
+    <div class="col p-2 d-flex justify-content-center"
+      data-action="click->filter#top"
+      data-filter-target="top">
+      <%=image_tag("toptype.png")%>
+    </div>
+    <div class="col p-2 d-flex justify-content-center"
+      data-action="click->filter#large"
+      data-filter-target="large">
+      <%=image_tag("largest.png")%>
+    </div>
+    <div class="col p-2 d-flex justify-content-center"
+      data-action="click->filter#budget"
+      data-filter-target="budget">
+      <%=image_tag("budget.png")%>
+    </div>
+    <div class="col p-2 d-flex justify-content-center"><%=image_tag("filter.png")%></div>
   </div>
-
 
 
 
   <div class="row">
     <%@pokemons.each do |pokemon|%>
       <%if pokemon.status != "pending"%>
-        <div class="col-lg-3">
+        <div class="col-lg-3 "data-filter-data="<%=pokemon%>">
           <%=render "/shared/card" ,name:pokemon.name.titleize,rare:pokemon.rarity,price:pokemon.price,id:pokemon.id,photo:pokemon.photo.key%>
         </div>
       <%end%>
