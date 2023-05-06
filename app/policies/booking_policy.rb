@@ -4,6 +4,9 @@ class BookingPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    def resolve
+      return scope.where(user: user)
+    end
   end
 
   def new?
@@ -12,5 +15,17 @@ class BookingPolicy < ApplicationPolicy
 
   def create?
     return true
+  end
+
+  def edit?
+    return record.user == user
+  end
+
+  def update?
+    return record.user == user
+  end
+
+  def destroy?
+    return record.user == user
   end
 end
