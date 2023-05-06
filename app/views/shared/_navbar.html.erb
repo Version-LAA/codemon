@@ -19,9 +19,10 @@
           <li class="nav-item home-link">
             <%if user_signed_in?%>
               <%=link_to "My Bookings",my_bookings_path(current_user),class:"home-link"%>
+              <%=link_to "My Profile",pokemons_path,class:"home-link"%>
             <%end%>
           </li>
-          <li class="nav-item home-link">
+          <li>
             <%if user_signed_in?%>
               <%=link_to "Logout",destroy_user_session_path,data:{turbo_method: :delete},class:"home-link"%>
             <%else%>
