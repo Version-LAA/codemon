@@ -7,24 +7,26 @@
 <%# Pokemon Picture %>
 <div class="container text-center">
   <div class="row">
-    <div class="col-5" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px;">
+    <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
       <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
         <%= cl_image_tag(@pokemon.photo.key, width: 350, height: 300, crop: :fill) %>
       </div>
     </div>
 
      <%# Reservation card (prices, dates, reviews, reserve button) %>
-    <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height:500px; background-color: white;">
+    <div class="reservation-card col-5">
       <div class="row">
-
+      <h5>R E S E R V E</h5>
+      <h5>N O W </h5>
         <%# Cost per day %>
-        <div class="col" style="padding: 20px; margin: 20px; text-align: left;">
+        <div class="col" style="margin: 20px; text-align: left;">
           $<%=@pokemon.price%> per day
         </div>
 
         <%# Reviews %>
-        <div class="col" style="padding: 20px; margin: 20px; text-align: right;">
+        <div class="col" style="margin: 20px; text-align: right;">
           <script>document.write("⭐️".repeat(Math.floor(Math.random() * 3) + 3) + " reviews");</script>
+          <%#  %>
         </div>
       </div>
 
@@ -32,7 +34,7 @@
       <div class="row">
         <div class="smaller-image col">
           <div>
-            <%= cl_image_tag(@pokemon.photo.key, width: 125, height: 100, crop: :fill) %>
+            <%= image_tag("wallpaper3.jpg", width: 125, height: 100, crop: :fill) %>
           </div>
         </div>
       </div>
@@ -40,27 +42,27 @@
       <%# Battle now button %>
       <div class="row">
         <div class="col" style="padding-top: 10px; margin: 10px;">
-            <strong><%=link_to "Battle Now", new_pokemon_booking_path(@pokemon),class:"btn btn-danger"%></strong>
+            <strong><%=link_to "B A T T L E", new_pokemon_booking_path(@pokemon),class:"btn btn-battle"%></strong>
         </div>
       </div>
 
       <%# You won't be charged yet %>
       <div class="row">
-        <div class="col" style="padding-bottom: 40px; margin: 0 auto; color: black; font-size: 14px;  ">
-          You won't be charged yet
+        <div class="col" style="padding-bottom: 40px; font-size: 14px;  ">
+          <i>You won't be charged yet</i>
         </div>
       </div>
 
     <%# Price x days %>
       <div class="row">
-        <div class="col" style="padding: 1px; margin: 1px;">
+        <div class="col">
           <u>price x days</u> $<%=@pokemon.price%>
         </div>
       </div>
 
       <%# Service fee %>
       <div class="row">
-        <div class="col" style="padding: 1px; margin: 1px;">
+        <div class="col">
           <u>Codemon service fee</u> $<%=service=rand(50..100)%>.00
         </div>
       </div>
@@ -77,7 +79,8 @@
   <%# Pokemon description %>
   <div class="container">
     <div class="row">
-      <div class="description col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
+      <div class="description">
+        <h6>D E S C R I P T I O N</h6>
         <%=@pokemon.description%>
       </div>
     </div>
@@ -86,21 +89,17 @@
   <%# Pokemon stats  %>
   <div class="container">
     <div class="row">
-      <div class="description stats col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
-        <h2>Codemon stats:</h2>
+      <div class="description stats">
+        <h6>S T A T I S T I C S</h6>
         <ol>
           <li> Type: <%= @pokemon.pokemon_type %></li>
           <li> Rarity: <%= @pokemon.rarity %></li>
           <li> Size: <%= @pokemon.size  %></li>
-          <li></li>
+          <li> <div>Height: {awaiting JS }</div></li>
+          <li> <div>Abilities: {awaiting JS} </div> </li>
+          <li> <div>Moves: {awaiting JS} </div></li>
         </ol>
       </div>
     </div>
   </div>
 </div>
-    <%# t.string "name"
-    t.string "pokemon_type"
-    t.string "rarity"
-    t.text "description"
-    t.integer "size"
-    t.decimal "price" %>
