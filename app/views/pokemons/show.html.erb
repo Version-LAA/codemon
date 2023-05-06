@@ -1,78 +1,77 @@
-<%# Navbar and pokemon name %>
+<%# Navbar%>
 <%=render "shared/navbar"%>
+
+<%# Pokemon name %>
+<div style="margin-left:3710px;"><h1><%=@pokemon.name.capitalize%></h1></div>
+
 <%# Pokemon Picture %>
-<div style="margin-left:375px;"><h1><%=@pokemon.name.capitalize%></h1></div>
 <div class="container text-center">
   <div class="row">
-    <div class="col-5" style="border: 1px solid black; padding: 0px; margin: 10px; height: 300px;">
+    <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
       <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
-        <%= cl_image_tag(@pokemon.photo.key, width: 400, height: 300, crop: :fill) %>
+        <%= cl_image_tag(@pokemon.photo.key, width: 350, height: 300, crop: :fill) %>
       </div>
     </div>
 
-
-     <%# reservation card (prices, dates, reviews, reserve button) %>
-    <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height:500px; background-color: white;">
+     <%# Reservation card (prices, dates, reviews, reserve button) %>
+    <div class="reservation-card col-5">
       <div class="row">
 
-        <%# might need another col for the reviews %>
-        <div class="col" style="padding: 20px; margin: 20px; text-align: left;">
-          $$$ per battle
+      <%# Reserve now %>
+      <h5>R E S E R V E</h5>
+      <h5>N O W </h5>
+
+        <%# Cost per day %>
+        <div class="col" style="margin: 20px; text-align: left;">
+          $<%=@pokemon.price%> per day
         </div>
 
-        <div class="col" style="padding: 20px; margin: 20px; text-align: right;">
-          ⭐️⭐️⭐️⭐️⭐️ reviews
-        </div>
+        <%# Reviews %>
+      <div class="col" style="margin: 20px; text-align: right;">
+        <%= "⭐️" * (rand(3) + 3) %> reviews
       </div>
 
+      <%# Smaller pokemon picture %>
       <div class="row">
-        <div class="col" style="padding: 7px; margin: 7px;">
-          <div style="border: 1px solid black; border-radius: 10px; padding: 10px; width: 50%; margin: 0 auto;">
-            <div style="display: flex; justify-content: space-between;">
-              <div>Check in: <input type="date" style="width: 100px;"></div>
-              <div>Check out: <input type="date" style="width: 100px;"></div>
-            </div>
+        <div class="smaller-image col">
+          <div>
+            <%= image_tag("wallpaper3.jpg", width: 125, height: 100, crop: :fill) %>
           </div>
         </div>
       </div>
 
-
+      <%# Battle now button %>
       <div class="row">
-        <div class="col" style="padding: 5px; margin: 5px;">
-            <strong><%=link_to "Battle Now", new_pokemon_booking_path(@pokemon),class:"btn btn-danger"%></strong>
-
+        <div class="col" style="padding-top: 10px; margin: 10px;">
+            <strong><%=link_to "B A T T L E", new_pokemon_booking_path(@pokemon),class:"btn btn-battle"%></strong>
         </div>
       </div>
 
+      <%# You won't be charged yet %>
+      <div class="row">
+        <div class="col" style="padding-bottom: 40px; font-size: 14px;  ">
+          <i>You won't be charged yet</i>
+        </div>
+      </div>
+
+    <%# Price x days %>
       <div class="row">
         <div class="col">
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col" style="padding-bottom: 20px; margin: 0 auto; color: black;">
-          You won't be charged yet
-        </div>
-      </div>
-
-    <%# might need another col for the $$$ %>
-      <div class="row">
-        <div class="col" style="padding: 1px; margin: 1px;">
           <u>price x days</u> $<%=@pokemon.price%>
         </div>
       </div>
 
-      <%# might need another col for the $$$ %>
+      <%# Service fee %>
       <div class="row">
-        <div class="col" style="padding: 1px; margin: 1px;">
+        <div class="col">
           <u>Codemon service fee</u> $<%=service=rand(50..100)%>.00
         </div>
       </div>
 
+      <%# Total before taxes %>
       <div class="row">
-        <div class="col" style="padding: 10px; margin: 10px;">
-          <b>Total before taxes:$<%=@pokemon.price+service%></b>
+        <div class="col" style="padding-top: 25px; margin: 10px;">
+          <b>Total before taxes: $<%=@pokemon.price+service%></b>
         </div>
       </div>
     </div>
@@ -81,8 +80,26 @@
   <%# Pokemon description %>
   <div class="container">
     <div class="row">
-      <div class="description col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
+      <div class="description">
+        <h6>D E S C R I P T I O N</h6>
         <%=@pokemon.description%>
+      </div>
+    </div>
+  </div>
+
+  <%# Pokemon stats  %>
+  <div class="container">
+    <div class="row">
+      <div class="description stats">
+        <h6>S T A T I S T I C S</h6>
+        <ol>
+          <li> Type: <%= @pokemon.pokemon_type %></li>
+          <li> Rarity: <%= @pokemon.rarity %></li>
+          <li> Size: <%= @pokemon.size  %></li>
+          <li> <div>Height: {awaiting JS }</div></li>
+          <li> <div>Abilities: {awaiting JS} </div> </li>
+          <li> <div>Moves: {awaiting JS} </div></li>
+        </ol>
       </div>
     </div>
   </div>

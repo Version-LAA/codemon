@@ -1,5 +1,39 @@
+.reservation-card {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  height: 500px;
+  background-color: white;
+}
+
 .description {
   position: relative;
   bottom: 168px;
   background-color: white;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  height: 150px;
+  width: 718px;
+}
+
+.btn-battle {
+  width: 210px;
+}
+
+h6 {
+  text-align: center;
+}
+
+.stats {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  height: 225px;
+  text-align: left;
+  width: 718px;
+}
+
+ol {
+  list-style-type: none;
 }
