@@ -1,78 +1,78 @@
-<%# Navbar and pokemon name %>
+<%# Navbar%>
 <%=render "shared/navbar"%>
+
+<%# Pokemon name %>
+<div style="margin-left:3710px;"><h1><%=@pokemon.name.capitalize%></h1></div>
+
 <%# Pokemon Picture %>
-<div style="margin-left:375px;"><h1><%=@pokemon.name.capitalize%></h1></div>
 <div class="container text-center">
   <div class="row">
-    <div class="col-5" style="border: 1px solid black; padding: 0px; margin: 10px; height: 300px;">
+    <div class="col-5" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px;">
       <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
-        <%= cl_image_tag(@pokemon.photo.key, width: 400, height: 300, crop: :fill) %>
+        <%= cl_image_tag(@pokemon.photo.key, width: 350, height: 300, crop: :fill) %>
       </div>
     </div>
 
-
-     <%# reservation card (prices, dates, reviews, reserve button) %>
+     <%# Reservation card (prices, dates, reviews, reserve button) %>
     <div class="col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height:500px; background-color: white;">
       <div class="row">
 
-        <%# might need another col for the reviews %>
+        <%# Cost per day %>
         <div class="col" style="padding: 20px; margin: 20px; text-align: left;">
-          $$$ per battle
+          $<%=@pokemon.price%> per day
         </div>
 
+        <%# Reviews %>
         <div class="col" style="padding: 20px; margin: 20px; text-align: right;">
-          ⭐️⭐️⭐️⭐️⭐️ reviews
+          <script>
+            rating = Math.floor(Math.random() * 3) + 3; // generate a random number between 3 and 5
+            document.write("⭐️".repeat(rating)); // display the rating as a series of star symbols
+            document.write(" reviews"); // display the text "reviews" after the rating
+          </script>
         </div>
       </div>
 
+      <%# Smaller pokemon picture %>
       <div class="row">
-        <div class="col" style="padding: 7px; margin: 7px;">
-          <div style="border: 1px solid black; border-radius: 10px; padding: 10px; width: 50%; margin: 0 auto;">
-            <div style="display: flex; justify-content: space-between;">
-              <div>Check in: <input type="date" style="width: 100px;"></div>
-              <div>Check out: <input type="date" style="width: 100px;"></div>
-            </div>
+        <div class="smaller-image col">
+          <div>
+            <%= cl_image_tag(@pokemon.photo.key, width: 125, height: 100, crop: :fill) %>
           </div>
         </div>
       </div>
 
-
+      <%# Battle now button %>
       <div class="row">
-        <div class="col" style="padding: 5px; margin: 5px;">
+        <div class="col" style="padding-top: 10px; margin: 10px;">
             <strong><%=link_to "Battle Now", new_pokemon_booking_path(@pokemon),class:"btn btn-danger"%></strong>
-
         </div>
       </div>
 
+      <%# You won't be charged yet %>
       <div class="row">
-        <div class="col">
-
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col" style="padding-bottom: 20px; margin: 0 auto; color: black;">
+        <div class="col" style="padding-bottom: 40px; margin: 0 auto; color: black; font-size: 14px;  ">
           You won't be charged yet
         </div>
       </div>
 
-    <%# might need another col for the $$$ %>
+    <%# Price x days %>
       <div class="row">
         <div class="col" style="padding: 1px; margin: 1px;">
           <u>price x days</u> $<%=@pokemon.price%>
         </div>
       </div>
 
-      <%# might need another col for the $$$ %>
+      <%# Service fee %>
       <div class="row">
         <div class="col" style="padding: 1px; margin: 1px;">
           <u>Codemon service fee</u> $<%=service=rand(50..100)%>.00
         </div>
       </div>
 
+      <%# Total before taxes %>
       <div class="row">
-        <div class="col" style="padding: 10px; margin: 10px;">
-          <b>Total before taxes:$<%=@pokemon.price+service%></b>
+        <div class="col" style="padding-top: 25px; margin: 10px;">
+          <b>Total before taxes: $<%=@pokemon.price+service%></b>
         </div>
       </div>
     </div>
@@ -86,4 +86,20 @@
       </div>
     </div>
   </div>
+
+  <%# Pokemon stats  %>
+  <div class="container">
+    <div class="row">
+      <div class="description col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
+        <h2>Codemon stats:</h2>
+
+      </div>
+    </div>
+  </div>
 </div>
+    <%# t.string "name"
+    t.string "pokemon_type"
+    t.string "rarity"
+    t.text "description"
+    t.integer "size"
+    t.decimal "price" %>
