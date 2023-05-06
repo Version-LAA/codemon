@@ -1,8 +1,10 @@
-<div class="card home-card m-4 border border-light" style="width: 15rem;">
+<div class="card home-card m-4 border border-light" data-banners-target="cardtype" style="width: 15rem;">
   <div class="card-header">
     <h5 class="card-title mt-5 mx-3 d-flex"><%=name%></h5>
-    <p class="card-banner"><%=rare%></p>
-    <p class="card-text"><strong>Type: </strong><%=type%></p>
+    <p class="card-banner" data-banners-target="cardbanner">
+      <%=rare%>
+    </p>
+    <p class="card-text" ><strong >Type: </strong><%=type%></p>
     <p class="card-text"><strong>Size: </strong><%=size%></p>
   </div>
   <div class="border card-pic">
