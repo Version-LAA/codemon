@@ -4,17 +4,25 @@
   font-size: large;
   text-align: center;
   font-size: 30px;
-}
+  background-color: beige;
+  width: 900px;
+  margin-left: 180px;
+  opacity: 0.96;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid black;
+ }
 
-.header {
+
+ .header {
   font-family: consolas;
-}
+  color: beige;
+ }
 
-.btn-primary {
+
+ .new {
   width: 400px;
-  margin-top:30px;
-  background-color: yellow;
-  color: red ;
-  box-shadow: 5px 5px 5px red;
+  margin-top:15px;
+  color: white ;
   font-size: 25px;
-}
+ }

@@ -5,11 +5,11 @@
   <h2 class = "header">Hi <%= current_user.name%>! Please make your reservation below! </h2>
   <h2 class = "header"> Email: <%= current_user.email%> </h2>
   <div class= "form">
-    <%= simple_form_for([@pokemon,@booking]) do |b|%>
-      <%= b.input :start_date %>
-      <%= b.input :end_date %>
-      <%= b.submit value="Reserve", class:"btn btn-primary" %>
-      <%= link_to "Cancel",pokemon_path(@pokemon), class:"btn btn-primary"%>
-    <% end %>
-  </div>
+   <%= simple_form_for([@pokemon,@booking]) do |b|%>
+     <%= b.input :start_date, html5: true %>
+     <%= b.input :end_date, html5: true %>
+     <%= b.submit value="Reserve", class:"btn btn-danger new" %>
+     <%= link_to "Cancel",pokemon_path(@pokemon), class:"btn btn-danger new"%>
+   <% end %>
+ </div>
 </div>
