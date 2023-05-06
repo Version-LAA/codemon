@@ -4,13 +4,13 @@
   <br>
   <div> <h3>My Booking Request</h3></div>
   <div>
-    <h3>My Pokemon</h3>
-      <%=link_to "Post a New Pokemon",new_pokemon_path,class:"btn mb-3"%>
+      <div class="my-pokemon"><h2>My Pokemon</h2></div>
+      <%=link_to "List A Pokemon",new_pokemon_path,class:"post-btn btn mb-3"%>
       <br>
       <table class="table table-light">
         <thead>
           <tr>
-            <th scope="col">🐱</th>
+            <th scope="col"></th>
             <th scope="col">Name</th>
             <th scope="col">Rarity</th>
             <th scope="col">Listing Price</th>
@@ -21,8 +21,8 @@
         <tbody>
           <%@pokemons.each do |pokemon|%>
             <tr>
-              <th scope="row">Image placeholder</th>
-              <td><%=pokemon.name%></td>
+              <th scope="row"><%=cl_image_tag(pokemon.photo.key,width: 100,height:100)%></th>
+              <td><%=link_to(pokemon.name,pokemon_path(pokemon))%></td>
               <td><%=pokemon.rarity%></td>
               <td><%=pokemon.price%></td>
               <td><%=pokemon.status%></td>

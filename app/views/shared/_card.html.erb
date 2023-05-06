@@ -18,6 +18,10 @@
   <%# <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" class="card-img-top border-bottom" alt="..."> %>
   <div class="card-body ">
     <p class="card-text">$<%=price%>/day</p>
-    <%=link_to "view",pokemon_path(id),class:"btn btn-danger btn-lg"%>
+    <%if pokemon.user_id == current_user.id%>
+      <%=link_to "Owened",pokemon_path(id),class:"btn btn-owned btn-lg"%>
+    <%else%>
+      <%=link_to "view",pokemon_path(id),class:"btn btn-danger btn-lg"%>
+    <%end%>
   </div>
 </div>
