@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BannersController from "./banners_controller"
+application.register("banners", BannersController)
+
 import FilterController from "./filter_controller"
 application.register("filter", FilterController)
 

@@ -1,7 +1,7 @@
 <%# First row (logo, name, search button, profile button) %>
 <%# Changes that need to be made *** make codemon stick to the logo, space the profile part out to the right *** %>
 <%=render "shared/navbar"%>
-<div class="container mt-4" data-controller="filter">
+<div class="container mt-4" data-controller="filter banners" >
   <div class="row border filter mb-4">
     <div class="col p-2 d-flex justify-content-center clickable"
       title="Most Rare Pokemon"
@@ -27,12 +27,12 @@
       data-filter-target="budget">
       <%=image_tag("budget.png")%>
     </div>
-    <div class="col p-2 d-flex justify-content-center"><%=image_tag("filter.png")%></div>
+    <div class="col p-2 d-flex justify-content-center"><%=image_tag("filter2.png")%></div>
   </div>
 
 
 
-  <div class="row" data-filter-target=card>
+  <div class="row"  data-filter-target=card data-banners-target=card>
     <%@pokemons.each do |pokemon|%>
       <%if pokemon.status != "pending"%>
         <div class="col-lg-3 ">
@@ -43,7 +43,9 @@
           id:pokemon.id,
           photo:pokemon.photo.key,
           type:pokemon.pokemon_type.titleize,
-          size:pokemon.size%>
+          size:pokemon.size,
+          targetName:"cardbanner",
+          targetName:"cardtype"%>
         </div>
       <%end%>
     <%end%>
