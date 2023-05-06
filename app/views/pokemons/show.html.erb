@@ -24,11 +24,7 @@
 
         <%# Reviews %>
         <div class="col" style="padding: 20px; margin: 20px; text-align: right;">
-          <script>
-            rating = Math.floor(Math.random() * 3) + 3; // generate a random number between 3 and 5
-            document.write("⭐️".repeat(rating)); // display the rating as a series of star symbols
-            document.write(" reviews"); // display the text "reviews" after the rating
-          </script>
+          <script>document.write("⭐️".repeat(Math.floor(Math.random() * 3) + 3) + " reviews");</script>
         </div>
       </div>
 
@@ -90,9 +86,14 @@
   <%# Pokemon stats  %>
   <div class="container">
     <div class="row">
-      <div class="description col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
+      <div class="description stats col-5" style="border: 1px solid black; padding: 10px; margin: 10px; height: 150px;">
         <h2>Codemon stats:</h2>
-
+        <ol>
+          <li> Type: <%= @pokemon.pokemon_type %></li>
+          <li> Rarity: <%= @pokemon.rarity %></li>
+          <li> Size: <%= @pokemon.size  %></li>
+          <li></li>
+        </ol>
       </div>
     </div>
   </div>
