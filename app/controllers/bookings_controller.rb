@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_pokemon, only: %i[new create]
-  before_action :set_booking, only: %i[update destroy]
+  before_action :set_booking, only: %i[edit update destroy]
 
   def new
     @booking = Booking.new
@@ -27,15 +27,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    set_booking
-    @booking.status = "Pending host validation"
+    @booking.user = current_user
     @booking.save!
     redirect_to booking_path(@booking)
   end
 
   def destroy
-    set_booking
+    @booking.user = current_user
     @booking.destroy
     redirect_to root_path
   end
