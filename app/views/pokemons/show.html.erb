@@ -24,10 +24,8 @@
         </div>
 
         <%# Reviews %>
-        <div class="col" style="margin: 20px; text-align: right;">
-          <script>document.write("⭐️".repeat(Math.floor(Math.random() * 3) + 3) + " reviews");</script>
-          <%#  %>
-        </div>
+      <div class="col" style="margin: 20px; text-align: right;">
+        <%= "⭐️" * (rand(3) + 3) %> reviews
       </div>
 
       <%# Smaller pokemon picture %>
