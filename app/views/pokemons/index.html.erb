@@ -1,0 +1,45 @@
+<%=render "shared/navbar"%>
+<div class="container mt-4">
+  <h1><%=current_user.name%>'s Profile</h1>
+  <br>
+  <div> <h3>My Booking Request</h3></div>
+  <div>
+    <h3>My Pokemon</h3>
+      <%=link_to "Post a New Pokemon",pokemons_path,class:"btn mb-3"%>
+      <br>
+      <table class="table table-light">
+        <thead>
+          <tr>
+            <th scope="col">🐱</th>
+            <th scope="col">Name</th>
+            <th scope="col">Rarity</th>
+            <th scope="col">Listing Price</th>
+            <th scope="col">Booking Status</th>
+            <th scope="col">Edit Pokemon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%@pokemons.each do |pokemon|%>
+            <tr>
+              <th scope="row">Image placeholder</th>
+              <td><%=pokemon.name%></td>
+              <td><%=pokemon.rarity%></td>
+              <td><%=pokemon.price%></td>
+              <td><%=pokemon.status%></td>
+              <td>
+                <%=link_to"Edit Listing",pokemons_path,class:"mx-3"%>|
+                <%=link_to"Delete Listing",pokemon_path(pokemon),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                %>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+  </div>
+  </div>
+
+
+
+
+</div>
