@@ -7,8 +7,4 @@ class PagesController < ApplicationController
   def show
     @pokemon = Pokemon.find(params[:id])
   end
-
-  def my_bookings
-    @my_bookings = Booking.where("user_id=?", params[:user_id])
-  end
 end

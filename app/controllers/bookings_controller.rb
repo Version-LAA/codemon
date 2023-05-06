@@ -23,17 +23,22 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to root_path
     else
-      redirect_to bed_path(@pokemon)
+      redirect_to booking_path(@pokemon)
     end
   end
 
   def edit
+    @booking.user = current_user
   end
 
   def update
     @booking.user = current_user
-    @booking.save!
-    redirect_to booking_path(@booking)
+    @booking.update(booking_params)
+    if @booking.save
+      redirect_to my_bookings_path
+    else
+      redirect_to booking_path(@booking)
+    end
   end
 
   def destroy
@@ -42,6 +47,10 @@ class BookingsController < ApplicationController
     redirect_to root_path
   end
 
+  def my_bookings
+    @bookings = current_user.bookings
+    @bookings = policy_scope(@bookings)
+  end
 
   private
 
@@ -55,5 +64,6 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 end

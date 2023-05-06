@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  get "pages/:user_id/my_bookings", to: "pages#my_bookings", as:"my_bookings"
+  get '/my-bookings', to: 'bookings#my_bookings', as: :my_bookings
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :pokemons do
-    resources :bookings
+    resources :bookings, only: %i[create new]
   end
+
+  resources :bookings, only: %i[update destroy edit]
+
   # Defines the root path route ("/")
   # root "articles#index"
 end
