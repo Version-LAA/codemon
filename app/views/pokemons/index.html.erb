@@ -2,7 +2,6 @@
 <div class="container mt-4">
   <h1><%=current_user.name%>'s Profile</h1>
   <br>
-  <div> <h3>My Booking Request</h3></div>
   <div>
       <div class="my-pokemon"><h2>My Pokemon</h2></div>
       <%=link_to "List A Pokemon",new_pokemon_path,class:"post-btn btn mb-3"%>
@@ -25,7 +24,12 @@
               <td><%=link_to(pokemon.name,pokemon_path(pokemon))%></td>
               <td><%=pokemon.rarity%></td>
               <td><%=pokemon.price%></td>
-              <td><%=pokemon.status%></td>
+              <td>
+                <%if pokemon.status == "pending"%>
+                  <%=link_to "Review New Booking Request",my_bookings_path%>
+                <%#<%=pokemon.status%>
+                <%end%>
+              </td>
               <td>
                 <%=link_to"Edit Listing",pokemons_path,class:"mx-3"%>|
                 <%=link_to"Delete Listing",pokemon_path(pokemon),

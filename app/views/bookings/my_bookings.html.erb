@@ -41,3 +41,21 @@
     <%end%>
   </div>
 </div>
+
+<br>
+<h2 style="text-align:center">Bookings For Approval</h2>
+<div class="container-sm mt-4 centered">
+  <div class="row">
+    <div class="col-2"><h4>Pokemon</h4></div>
+    <div class="col-2"> <h4>Reservation Dates</h4></div>
+    <div class="col-2"> <h4>Booking Total</h4></div>
+    <div class="col-2"> <h4>User Name</h4></div>
+    <div class="col-2"> <h4>Reservation Created</h4></div>
+    <div class="col-2"> <h4>Approve / Deny </h4></div>
+  </div>
+  <div>
+   <%@booking_request.each do |request|%>
+
+   <%end%>
+  </div>
+</div>

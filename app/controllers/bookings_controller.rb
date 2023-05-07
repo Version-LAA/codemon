@@ -50,7 +50,10 @@ class BookingsController < ApplicationController
   def my_bookings
     @bookings = current_user.bookings
     @bookings = policy_scope(@bookings)
+    @booking_request = Booking.where("user_id != #{current_user.id}")
   end
+
+  # to approve or deny a booking
 
   private
 
