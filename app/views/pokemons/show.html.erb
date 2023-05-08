@@ -43,7 +43,16 @@
       <%# Battle now button %>
       <div class="row">
         <div class="col" style="padding-top: 10px; margin: 10px;">
+          <%if user_signed_in?%>
+            <%if @pokemon.user_id == current_user.id%>
+              <strong><%=link_to "O w n e d", new_pokemon_booking_path(@pokemon),class:"btn btn-battle disabled"%></strong>
+            <%else%>
+              <strong><%=link_to "B A T T L E", new_pokemon_booking_path(@pokemon),class:"btn btn-battle"%></strong>
+            <%end%>
+          <%else%>
             <strong><%=link_to "B A T T L E", new_pokemon_booking_path(@pokemon),class:"btn btn-battle"%></strong>
+          <%end%>
+
         </div>
       </div>
 

@@ -21,7 +21,7 @@ class BookingsController < ApplicationController
       @booking.total = 0
     end
     if @booking.save
-      redirect_to root_path
+      redirect_to my_bookings_path
     else
       redirect_to booking_path(@pokemon)
     end
@@ -50,7 +50,32 @@ class BookingsController < ApplicationController
   def my_bookings
     @bookings = current_user.bookings
     @bookings = policy_scope(@bookings)
+    @booking_request = Booking.where("user_id != #{current_user.id}")
+
   end
+
+  # to approve or deny a booking
+  def update_booking_status
+    @booking_request = Booking.where("user_id != #{current_user.id}")
+    @my_request = @booking_request.find(params[:booking_id])
+    authorize @my_request
+    if params[:booking_update] == "approve"
+      @status = "true"
+      @my_request.booking_status = "approved"
+      @my_request.save
+      redirect_back(fallback_location: root_path)
+    elsif params[:booking_update] == "reject"
+      @status = "false"
+      @my_request.booking_status = "rejected"
+      @my_request.save
+      redirect_back(fallback_location: root_path)
+    end
+
+    #@booking = Booking.find(params[:id])
+
+
+  end
+
 
   private
 

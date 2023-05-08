@@ -27,7 +27,9 @@
       data-filter-target="budget">
       <%=image_tag("budget.png")%>
     </div>
-    <div class="col p-2 d-flex justify-content-center"><%=image_tag("filter2.png")%></div>
+    <div class="col p-2 d-flex justify-content-center">
+      <%=image_tag("filter2.png")%>
+    </div>
   </div>
 
 
@@ -44,6 +46,8 @@
           photo:pokemon.photo.key,
           type:pokemon.pokemon_type.titleize,
           size:pokemon.size,
+          pokemon:pokemon,
+          current_user:current_user,
           targetName:"cardbanner",
           targetName:"cardtype"%>
         </div>

@@ -48,7 +48,7 @@ class PokemonsController < ApplicationController
   end
 
   def get_image(pokemon)
-    url = "https://pokeapi.co/api/v2/pokemon/#{pokemon.name}/"
+    url = "https://pokeapi.co/api/v2/pokemon/#{pokemon.name.downcase}/"
     request = URI.open(url).read
     pokemon_api = JSON.parse(request)
     image = pokemon_api['sprites']['other']['dream_world']['front_default']
