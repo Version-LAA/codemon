@@ -2,10 +2,11 @@
 <%=render "shared/navbar"%>
 
 <%# Pokemon name %>
-<div style="margin-left:3710px;"><h1><%=@pokemon.name.capitalize%></h1></div>
 
 <%# Pokemon Picture %>
 <div class="container text-center">
+  <div style="margin-left:3710px;"><h1><%=@pokemon.name.capitalize%></h1></div>
+
   <div class="row">
     <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
       <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
@@ -97,17 +98,19 @@
   </div>
 
   <%# Pokemon stats  %>
-  <div class="container">
+  <div class="container" data-controller = "pokemon-stats">
     <div class="row">
       <div class="description stats">
-        <h6>S T A T I S T I C S</h6>
+        <h4>S T A T I S T I C S</h4>
+        <p>courtesy of Pokeapi.co</p>
         <ol>
+          <li>Name:<div data-pokemon-stats-target="name"><%=@pokemon.name%></div></li>
           <li> Type: <%= @pokemon.pokemon_type %></li>
           <li> Rarity: <%= @pokemon.rarity %></li>
           <li> Size: <%= @pokemon.size  %></li>
-          <li> <div>Height: {awaiting JS }</div></li>
-          <li> <div>Abilities: {awaiting JS} </div> </li>
-          <li> <div>Moves: {awaiting JS} </div></li>
+          <li> Weight:<div class="weight" data-pokemon-stats-target="weight"> </div></li>
+          <li> Abilities:<div data-pokemon-stats-target="abilities"> </div> </li>
+          <li> Moves:<div data-pokemon-stats-target="moves"></div></li>
         </ol>
       </div>
     </div>
