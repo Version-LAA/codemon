@@ -1,11 +1,12 @@
 <%# Navbar%>
 <%=render "shared/navbar"%>
 
-<%# Pokemon name %>
-<div style="margin-left:3710px;"><h1><%=@pokemon.name.capitalize%></h1></div>
-
-<%# Pokemon Picture %>
 <div class="container text-center">
+
+  <%# Pokemon name %>
+  <div style="color: white;"><h1><strong><%=@pokemon.name.capitalize%></strong></h1></div>
+
+  <%# Pokemon Picture %>
   <div class="row">
     <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
       <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
@@ -18,8 +19,8 @@
       <div class="row">
 
       <%# Reserve now %>
-      <h5>R E S E R V E</h5>
-      <h5>N O W </h5>
+      <h4>R E S E R V E</h4>
+      <h4>N O W </h4>
 
         <%# Cost per day %>
         <div class="col" style="margin: 20px; text-align: left;">
@@ -43,7 +44,16 @@
       <%# Battle now button %>
       <div class="row">
         <div class="col" style="padding-top: 10px; margin: 10px;">
+          <%if user_signed_in?%>
+            <%if @pokemon.user_id == current_user.id%>
+              <strong><%=link_to "O w n e d", new_pokemon_booking_path(@pokemon),class:"btn btn-battle disabled"%></strong>
+            <%else%>
+              <strong><%=link_to "B A T T L E", new_pokemon_booking_path(@pokemon),class:"btn btn-battle"%></strong>
+            <%end%>
+          <%else%>
             <strong><%=link_to "B A T T L E", new_pokemon_booking_path(@pokemon),class:"btn btn-battle"%></strong>
+          <%end%>
+
         </div>
       </div>
 
@@ -81,24 +91,26 @@
   <div class="container">
     <div class="row">
       <div class="description">
-        <h6>D E S C R I P T I O N</h6>
+        <h4>D E S C R I P T I O N</h4>
         <%=@pokemon.description%>
       </div>
     </div>
   </div>
 
   <%# Pokemon stats  %>
-  <div class="container">
+  <div class="container" data-controller = "pokemon-stats">
     <div class="row">
       <div class="description stats">
-        <h6>S T A T I S T I C S</h6>
+        <h4>S T A T I S T I C S</h4>
         <ol>
+          <li>courtesy of Pokeapi.co</li>
+          <li>Name:<div data-pokemon-stats-target="name"><%=@pokemon.name%></div></li>
           <li> Type: <%= @pokemon.pokemon_type %></li>
           <li> Rarity: <%= @pokemon.rarity %></li>
           <li> Size: <%= @pokemon.size  %></li>
-          <li> <div>Height: {awaiting JS }</div></li>
-          <li> <div>Abilities: {awaiting JS} </div> </li>
-          <li> <div>Moves: {awaiting JS} </div></li>
+          <li> Weight:<div class="weight" data-pokemon-stats-target="weight"> </div></li>
+          <li> Abilities:<div data-pokemon-stats-target="abilities"> </div> </li>
+          <li> Moves:<div data-pokemon-stats-target="moves"></div></li>
         </ol>
       </div>
     </div>

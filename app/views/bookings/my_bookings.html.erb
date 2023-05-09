@@ -1,4 +1,4 @@
-<%=render "shared/navbar"%>
+h<%=render "shared/navbar"%>
 
 <h1 class="mb-4" style="text-align:center"><%=current_user.name%>'s Bookings</h1>
 <div class="container-sm mt-4 centered">
@@ -43,4 +43,44 @@
       </div>
     <%end%>
   </div>
+</div>
+
+<br>
+<h2 style="text-align:center;color:white">Bookings For Approval</h2>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr class="centered">
+        <th scope="col">Reservation Created</th>
+        <th scope="col">Pokemon</th>
+        <th scope="col">Reservation Dates</th>
+        <th scope="col">Booking Total</th>
+        <th scope="col">Requestor Name</th>
+        <th scope="col">Approve / Deny</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%@booking_request.each do |request|%>
+        <tr>
+          <th class="table-light" scope="row"><%=request.created_at%></th>
+          <td class="table-light"><%=cl_image_tag(request.pokemon.photo.key,height:75,width:100)%></td>
+          <td class="table-light"><%="#{request.start_date} - #{request.end_date}"%></td>
+          <td class="table-light">$<%=request.total%></td>
+          <td class="table-light"><%=request.user.name%></td>
+          <td class="table-light">
+            <%if request.booking_status == "approved"%>
+              <p>Approved</p>
+            <%elsif request.booking_status == "rejected"%>
+              <p>Rejected</p>
+            <%else%>
+              <%=link_to "Approve",approval_bookings_path(request,params: {booking_id:request,booking_update:"approve"}),data:{turbo_method: :patch}%> |
+              <%=link_to "Reject",approval_bookings_path(request,params: {booking_id:request,booking_update:"reject"}),data:{turbo_method: :patch}%>
+            <%end%>
+          </td>
+        </tr>
+      <%end%>
+
+    </tbody>
+  </table>
 </div>

@@ -27,7 +27,25 @@
       data-filter-target="budget">
       <%=image_tag("budget.png")%>
     </div>
-    <div class="col p-2 d-flex justify-content-center"><%=image_tag("filter2.png")%></div>
+    <div class="col p-2 d-flex justify-content-center">
+      <%=image_tag("filter2.png")%>
+    </div>
+  <div class="row">
+    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for a Pokemon"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn" %>
+    <% end %>
+  </div>
+</div>
+
+  <br>
+
+  <div class="row justify-content-center">
+
   </div>
 
 
@@ -44,6 +62,8 @@
           photo:pokemon.photo.key,
           type:pokemon.pokemon_type.titleize,
           size:pokemon.size,
+          pokemon:pokemon,
+          current_user:current_user,
           targetName:"cardbanner",
           targetName:"cardtype"%>
         </div>

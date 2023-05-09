@@ -12,3 +12,6 @@ application.register("filter", FilterController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import PokemonStatsController from "./pokemon_stats_controller"
+application.register("pokemon-stats", PokemonStatsController)
