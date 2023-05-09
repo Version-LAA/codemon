@@ -36,9 +36,7 @@ h<%=render "shared/navbar"%>
         </div>
         <div class="col-2 border">
          <%=link_to "edit", edit_booking_path(booking),class:"btn btn-blue"%>
-        </div>
-        <div class="col-2 border">
-         <%=link_to "cancel", booking_path(booking),class:"btn btn-blue"%>
+         <%=link_to "cancel", cancel_booking_path(booking),class:"btn btn-blue" , data:{turbo_method: :delete} %>
         </div>
       </div>
     <%end%>
