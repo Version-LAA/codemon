@@ -1,12 +1,12 @@
 <%# Navbar%>
 <%=render "shared/navbar"%>
 
-<%# Pokemon name %>
-
-<%# Pokemon Picture %>
 <div class="container text-center">
-  <div style="margin-left:3710px;"><h1><%=@pokemon.name.capitalize%></h1></div>
 
+  <%# Pokemon name %>
+  <div style="color: white;"><h1><strong><%=@pokemon.name.capitalize%></strong></h1></div>
+
+  <%# Pokemon Picture %>
   <div class="row">
     <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
       <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
@@ -19,8 +19,8 @@
       <div class="row">
 
       <%# Reserve now %>
-      <h5>R E S E R V E</h5>
-      <h5>N O W </h5>
+      <h4>R E S E R V E</h4>
+      <h4>N O W </h4>
 
         <%# Cost per day %>
         <div class="col" style="margin: 20px; text-align: left;">
@@ -91,7 +91,7 @@
   <div class="container">
     <div class="row">
       <div class="description">
-        <h6>D E S C R I P T I O N</h6>
+        <h4>D E S C R I P T I O N</h4>
         <%=@pokemon.description%>
       </div>
     </div>
@@ -102,8 +102,8 @@
     <div class="row">
       <div class="description stats">
         <h4>S T A T I S T I C S</h4>
-        <p>courtesy of Pokeapi.co</p>
         <ol>
+          <li>courtesy of Pokeapi.co</li>
           <li>Name:<div data-pokemon-stats-target="name"><%=@pokemon.name%></div></li>
           <li> Type: <%= @pokemon.pokemon_type %></li>
           <li> Rarity: <%= @pokemon.rarity %></li>
