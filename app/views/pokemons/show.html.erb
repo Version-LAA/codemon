@@ -11,6 +11,7 @@
     <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
       <div style="background-color: #F5F3F7; height: 100%; display: flex; align-items: center; justify-content: center;">
         <%= cl_image_tag(@pokemon.photo.key, width: 350, height: 300, crop: :fill) %>
+        <p class="test">Owned by: </p>
       </div>
     </div>
 
@@ -102,7 +103,7 @@
     <div class="row">
       <div class="description stats">
         <h4><strong>S T A T I S T I C S</strong></h4>
-        <p>courtesy of Pokeapi.co</p>
+        <p class="courtesy">courtesy of Pokeapi.co</p>
         <ol>
           <li> <strong class="words">N A M E</strong><div data-pokemon-stats-target="name"><%=@pokemon.name%></div></li>
           <li> <strong class="words">T Y P E</strong> <div> <%= @pokemon.pokemon_type %></div></li>
