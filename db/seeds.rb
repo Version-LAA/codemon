@@ -14,7 +14,7 @@ User.delete_all
 puts "pokemon cleaned"
 
 puts "creating users"
-User.create(email: "codemon@codemon.com", password: "password",name:"Latoya")
+User.create(email: "codemon@codemon.com", password: "password",name:"Codemon")
 User.create(email: "latoya@codemon.com", password: "password",name:"Latoya")
 User.create(email: "peter@codemon.com", password: "password",name:"Peter")
 User.create(email: "andrew@codemon.com", password: "password",name:"Andrew")

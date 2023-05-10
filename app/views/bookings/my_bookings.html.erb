@@ -16,7 +16,7 @@
       <div class="row border my-booking">
         <div class="col-2 border">
           <%=cl_image_tag(booking.pokemon.photo.key,height:75,width:100)%>
-          <span> <strong><%=booking.pokemon.name%></strong></span>
+          <span> <strong><%=link_to booking.pokemon.name,pokemon_path(booking.pokemon)%></strong></span>
         </div>
         <div class="col-2 border">
           <%="#{booking.start_date} - #{booking.end_date} "%>
