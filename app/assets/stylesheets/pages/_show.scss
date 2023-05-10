@@ -3,7 +3,7 @@
   padding: 10px;
   margin: 10px;
   height: 500px;
-  background-color: white;
+  background-color: #F5F3F7;
 }
 
 .btn-battle {
@@ -13,7 +13,7 @@
 .description {
   position: relative;
   bottom: 168px;
-  background-color: white;
+  background-color: #F5F3F7;
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
@@ -32,7 +32,7 @@ h4 {
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
-  height: 500px;
+  height: 550px;
   text-align: left;
   width: 730px;
 }
@@ -42,4 +42,19 @@ ol {
 }
 li {
   padding-bottom:10px;
+}
+
+.words {
+  color:#B20701;
+}
+
+.courtesy {
+  text-align: center;
+  font-size: 12px;
+}
+
+.test {
+  position: relative;
+  top: 155px;
+  right: 460px;
 }
