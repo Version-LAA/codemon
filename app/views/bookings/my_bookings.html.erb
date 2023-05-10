@@ -1,14 +1,14 @@
 <%=render "shared/navbar"%>
 
-<h1 class="mb-4" style="text-align:center"><%=current_user.name%>'s Bookings</h1>
+<h2 class="mb-4" style="text-align:center"><%=current_user.name%>'s Booking History</h2>
 <div class="container-sm mt-4 centered">
   <div class="row">
-    <div class="col-2"><h4>Pokemon</h4></div>
-    <div class="col-2"> <h4>Reservation Dates</h4></div>
-    <div class="col-2"> <h4>Reservation Status</h4></div>
-    <div class="col-2"> <h4>Booking Total</h4></div>
-    <div class="col-2"> <h4>Reservation Created</h4></div>
-    <div class="col-2"> <h4>Edit</h4></div>
+    <div class="col-2"><h5 style="color:black">Pokemon</h5></div>
+    <div class="col-2"> <h5 style="color:black">Reservation Dates</h5></div>
+    <div class="col-2"> <h5 style="color:black">Reservation Status</h5></div>
+    <div class="col-2"> <h5 style="color:black">Booking Total</h5></div>
+    <div class="col-2"> <h5 style="color:black">Reservation Created</h5></div>
+    <div class="col-2"> <h5 style="color:black">Edit</h5></div>
 
   </div>
   <div>
@@ -16,7 +16,7 @@
       <div class="row border my-booking">
         <div class="col-2 border">
           <%=cl_image_tag(booking.pokemon.photo.key,height:75,width:100)%>
-          <span> <strong><%=booking.pokemon.name%></strong></span>
+          <span> <strong><%=link_to booking.pokemon.name,pokemon_path(booking.pokemon)%></strong></span>
         </div>
         <div class="col-2 border">
           <%="#{booking.start_date} - #{booking.end_date} "%>
@@ -44,7 +44,7 @@
 </div>
 
 <br>
-<h2 style="text-align:center;color:white">Bookings For Approval</h2>
+<h2 style="text-align:center;color:black">Bookings For Approval</h2>
 
 <div class="container">
   <table class="table">

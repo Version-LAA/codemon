@@ -1,12 +1,7 @@
 <%=render "shared/navbar"%>
 <div class="container">
-
-
   <div class="container ">
     <div class="row">
-      <div class="col-4">
-         <%=image_tag("squirtle.gif")%>
-      </div>
       <div class="col-8 newpokemon-form">
          <h1>List a new Pokemon</h1>
         <%= simple_form_for @pokemon do |f| %>
@@ -19,9 +14,10 @@
           <%= f.submit "Create", class: "btn btn-danger justify-content-center" %>
         <% end %>
       </div>
-
     </div>
-
+  <div id="sgif" class="col-4 mt-5">
+     <%=image_tag("squirtle.gif")%>
+  </div>
 
 
   </div>
