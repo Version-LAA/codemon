@@ -4,12 +4,12 @@
 <div class="container text-center">
 
   <%# Pokemon name %>
-  <div style="color: white;"><h1><strong><%=@pokemon.name.capitalize%></strong></h1></div>
+  <div style="color: #F5F3F7;"><h1><strong><%=@pokemon.name.capitalize%></strong></h1></div>
 
   <%# Pokemon Picture %>
   <div class="row">
     <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
-      <div style="background-color: white; height: 100%; display: flex; align-items: center; justify-content: center;">
+      <div style="background-color: #F5F3F7; height: 100%; display: flex; align-items: center; justify-content: center;">
         <%= cl_image_tag(@pokemon.photo.key, width: 350, height: 300, crop: :fill) %>
       </div>
     </div>
@@ -19,8 +19,8 @@
       <div class="row">
 
       <%# Reserve now %>
-      <h4>R E S E R V E</h4>
-      <h4>N O W </h4>
+      <h4><strong>R E S E R V E</strong></h4>
+      <h4><strong>N O W </strong></h4>
 
         <%# Cost per day %>
         <div class="col" style="margin: 20px; text-align: left;">
@@ -91,7 +91,7 @@
   <div class="container">
     <div class="row">
       <div class="description">
-        <h4>D E S C R I P T I O N</h4>
+        <h4><strong>D E S C R I P T I O N</strong></h4>
         <%=@pokemon.description%>
       </div>
     </div>
@@ -101,16 +101,16 @@
   <div class="container" data-controller = "pokemon-stats">
     <div class="row">
       <div class="description stats">
-        <h4>S T A T I S T I C S</h4>
+        <h4><strong>S T A T I S T I C S</strong></h4>
+        <p>courtesy of Pokeapi.co</p>
         <ol>
-          <li>courtesy of Pokeapi.co</li>
-          <li>Name:<div data-pokemon-stats-target="name"><%=@pokemon.name%></div></li>
-          <li> Type: <%= @pokemon.pokemon_type %></li>
-          <li> Rarity: <%= @pokemon.rarity %></li>
-          <li> Size: <%= @pokemon.size  %></li>
-          <li> Weight:<div class="weight" data-pokemon-stats-target="weight"> </div></li>
-          <li> Abilities:<div data-pokemon-stats-target="abilities"> </div> </li>
-          <li> Moves:<div data-pokemon-stats-target="moves"></div></li>
+          <li> <strong class="words">N A M E</strong><div data-pokemon-stats-target="name"><%=@pokemon.name%></div></li>
+          <li> <strong class="words">T Y P E</strong> <div> <%= @pokemon.pokemon_type %></div></li>
+          <li> <strong class="words">R A R I T Y</strong> <div><%= @pokemon.rarity %></div></li>
+          <li> <strong class="words">S I Z E</strong> <div><%= @pokemon.size%></div></li>
+          <li> <strong class="words">W E I G H T</strong><div class="weight" data-pokemon-stats-target="weight"> </div></li>
+          <li> <strong class="words">A B I L I T I E S</strong><div data-pokemon-stats-target="abilities"> </div> </li>
+          <li> <strong class="words">M O V E S</strong><div data-pokemon-stats-target="moves"></div></li>
         </ol>
       </div>
     </div>
