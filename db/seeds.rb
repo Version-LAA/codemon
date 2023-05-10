@@ -32,7 +32,6 @@ puts "starting seed of pokemon"
     request = URI.open(url).read
     response = JSON.parse(request)
     pokemon_list = response
-    puts "reading types"
     puts ""
     pokemon_list['types'].each do |type|
       types << type['type']['name']
