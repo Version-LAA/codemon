@@ -14,7 +14,7 @@
             <th scope="col">Rarity</th>
             <th scope="col">Listing Price</th>
             <th scope="col">Booking Status</th>
-            <th scope="col">Edit Pokemon</th>
+            <th scope="col">Listing Options</th>
           </tr>
         </thead>
         <tbody>
@@ -25,16 +25,21 @@
               <td><%=pokemon.rarity%></td>
               <td><%=pokemon.price%></td>
               <td>
+
                 <%if pokemon.status == "pending"%>
+
                   <%=link_to "Review New Booking Request",my_bookings_path%>
-                <%#<%=pokemon.status%>
+
+                <%elsif pokemon.status == "approved"%>
+
+                  <%=link_to "Booking Approved",my_bookings_path%>
                 <%end%>
               </td>
               <td>
-                <%=link_to"Edit Listing",pokemons_path,class:"mx-3"%>|
-                <%=link_to"Delete Listing",pokemon_path(pokemon),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-                %>
+                <%=link_to"📝",pokemons_path,class:"mx-3",title:"edit"%>|
+                <%=link_to"🗑",pokemon_path(pokemon),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+                  title:"delete"%>
               </td>
             </tr>
           <%end%>

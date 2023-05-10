@@ -58,11 +58,14 @@ class BookingsController < ApplicationController
   def update_booking_status
     @booking_request = Booking.where("user_id != #{current_user.id}")
     @my_request = @booking_request.find(params[:booking_id])
+    @my_pokemon = @my_request.pokemon
     authorize @my_request
     if params[:booking_update] == "approve"
       @status = "true"
       @my_request.booking_status = "approved"
       @my_request.save
+      @my_pokemon.status = "approved"
+      @my_pokemon.save
       redirect_back(fallback_location: root_path)
     elsif params[:booking_update] == "reject"
       @status = "false"
