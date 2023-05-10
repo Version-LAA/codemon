@@ -31,13 +31,13 @@
       <%=image_tag("filter2.png")%>
     </div>
   <div class="row">
-    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+    <%= form_with url: root_path, method: :get, class: "d-flex justify-content-center" do %>
       <%= text_field_tag :query,
             params[:query],
-            class: "form-control",
+            class: "form-control search",
             placeholder: "Search for a Pokemon"
         %>
-      <%= submit_tag "Search", name: "", class: "btn" %>
+      <%= submit_tag "Search", name: "", class: "btn btn-danger search" %>
     <% end %>
   </div>
 </div>

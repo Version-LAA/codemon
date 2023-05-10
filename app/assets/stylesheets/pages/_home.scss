@@ -16,7 +16,8 @@ body {
   -webkit-backdrop-filter: blur(9.1px);
   border: 1px solid rgba(255, 204, 204, 0.57);
   box-shadow: 10px 5px 5px rgb(196, 196, 196);
-  height: 150px;
+  height: 170px;
+  padding-bottom: 30px;
 }
 
 #filter-row {
@@ -38,4 +39,12 @@ body {
   cursor:pointer;
   background-color: rgb(239, 223, 134);
   border-radius: 16px;
+}
+
+.search{
+  width: 300px;
+}
+
+.justify-content-center{
+  gap: 20px;
 }
