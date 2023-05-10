@@ -17,7 +17,7 @@ class PokemonsController < ApplicationController
     authorize(@pokemon)
     get_image(@pokemon)
     @pokemon.save
-    redirect_to root_path
+    redirect_to pokemon_path(@pokemon)
   end
 
   def show

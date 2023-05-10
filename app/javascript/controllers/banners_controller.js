@@ -15,6 +15,9 @@ export default class extends Controller {
       } else if (htmlString==="uncommon") {
         element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('silver')
       }
+      else {
+        element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('red')
+      }
     });
   }
 }
