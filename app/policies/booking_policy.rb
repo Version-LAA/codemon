@@ -32,4 +32,9 @@ class BookingPolicy < ApplicationPolicy
   def update_booking_status?
     return true
   end
+
+  def cancel_booking?
+    return true
+  end
+
 end

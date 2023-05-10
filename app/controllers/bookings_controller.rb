@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_pokemon, only: %i[new create]
-  before_action :set_booking, only: %i[edit update destroy]
+  before_action :set_booking, only: %i[edit update cancel_booking]
 
   def new
     @booking = Booking.new
@@ -41,10 +41,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  def destroy
-    @booking.user = current_user
-    @booking.destroy
-    redirect_to root_path
+  def cancel_booking
+    @booking.booking_status = "cancel"
+    @booking.save
+    redirect_to my_bookings_path
   end
 
   def my_bookings
