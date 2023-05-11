@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @pokemon.save
     authorize @booking #we authorize the ability to create a pokemon booking
     if @booking.end_date && @booking.start_date #need clarity on this line
-      @booking.total = (@booking.end_date - @booking.start_date).to_f * @booking.pokemon.price.to_f
+      @booking.total = (@booking.end_date - @booking.start_date) * @booking.pokemon.price
     else
       @booking.total = 0
     end
