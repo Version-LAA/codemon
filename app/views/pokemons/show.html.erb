@@ -9,7 +9,7 @@
   <%# Pokemon Picture %>
   <div class="row">
     <div class="col" style="border: 1px solid black; padding: 0px; margin: 10px; height: 325px; width: 540px;">
-      <div style="background-color: #F5F3F7; height: 100%; display: flex; align-items: center; justify-content: center;">
+      <div style="background-color: #F5F5DC; opacity: 0.96; height: 100%; display: flex; align-items: center; justify-content: center;">
         <%= cl_image_tag(@pokemon.photo.key, width: 350, height: 300, crop: :fill) %>
         <p class="test">Owned by: <%= @pokemon.user.name %></p>
       </div>
