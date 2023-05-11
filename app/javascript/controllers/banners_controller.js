@@ -11,9 +11,11 @@ export default class extends Controller {
     output.forEach(element => {
       const htmlString = element[1].innerText.split(" ")[0].split("\n")[2]
       if (htmlString === "rare") {
-        element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('gold')
+        element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('blue')
       } else if (htmlString==="uncommon") {
-        element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('silver')
+        element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('orange')
+      } else if (htmlString==="common") {
+        element[1]['children'][0]['childNodes'][1]['children'][1].classList.add('green')
       }
     });
   }
