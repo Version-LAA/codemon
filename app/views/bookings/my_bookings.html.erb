@@ -1,6 +1,6 @@
 <%=render "shared/navbar"%>
 
-<h2 class="mb-4" style="text-align:center"><%=current_user.name%>'s Booking History</h2>
+<h2 class="mb-4" style="text-align:center; color:white;"><%=current_user.name%>'s Booking History</h2>
 <div class="container-sm mt-4 centered">
   <div class="row">
     <div class="col-2"><h5 style="color:black">Pokemon</h5></div>
@@ -32,7 +32,7 @@
           $<%=booking.total%>
         </div>
         <div class="col-2 border">
-          <%=booking.created_at%>
+          <%=booking.created_at.strftime("%m-%d-%y")%>
         </div>
         <div class="col-2 border">
          <%=link_to "✏️", edit_booking_path(booking)%> |
@@ -44,7 +44,7 @@
 </div>
 
 <br>
-<h2 style="text-align:center;color:black">Bookings For Approval</h2>
+<h2 style="text-align:center;color:white">Bookings For Approval</h2>
 
 <div class="container">
   <table class="table">
@@ -61,7 +61,7 @@
     <tbody>
       <%@booking_request.each do |request|%>
         <tr>
-          <th class="table-light" scope="row"><%=request.created_at%></th>
+          <th class="table-light" scope="row"><%=request.created_at.strftime("%m-%d-%y")%></th>
           <td class="table-light"><%=cl_image_tag(request.pokemon.photo.key,height:75,width:100)%></td>
           <td class="table-light"><%="#{request.start_date} - #{request.end_date}"%></td>
           <td class="table-light">$<%=request.total%></td>

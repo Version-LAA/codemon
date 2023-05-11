@@ -41,7 +41,7 @@ puts "starting seed of pokemon"
       pokemon_type: types.sample,
       rarity: poke_rarity.sample,
       size: pokemon_list['height'],
-      price: rand(20..1000.00).round(2),
+      price: rand(20..1000),
       description: "A #{pokemon_list['height']} decimetres pokemon, " \
                    "who is of the following type(s):#{types.join(',')} " \
                    "and has #{pokemon_list['abilities'][0]['ability']['name']} "\
