@@ -18,7 +18,7 @@ User.create(email: "codemon@codemon.com", password: "password",name:"Codemon")
 User.create(email: "latoya@codemon.com", password: "password",name:"Latoya")
 User.create(email: "peter@codemon.com", password: "password",name:"Peter")
 User.create(email: "andrew@codemon.com", password: "password",name:"Andrew")
-User.create(email: "kameron@codemon.com", password: "password",name:"Latoya")
+User.create(email: "kameron@codemon.com", password: "password",name:"Kameron")
 User.create(email: "bertrand@codemon.com", password: "password",name:"Bertrand")
 puts "users created"
 
